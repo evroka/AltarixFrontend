@@ -1,25 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 
+class InputMessage extends Component {
+    constructor() {
+        super();
+        this.state = { text: ''};
+    }
 
-function InputMessage() {
-    return (
+    updateMessage(event) {
+        this.setState({ text: event.target.value });
+    }
 
-        <div className="input-group mb-3">
-            <textarea type="text" className="form-control mb-3" placeholder="Введите сообщение"/>
-            <div>
-                <button className="btn btn-dark ml-3 mt-3" type="button">Send</button>
-            </div>
-        </div>
-       /* <div className='input-message input-group mb-3'>
-         <form >
-            <label>
-                <textarea rows='3' cols='50' className='form-control ml-3' />
-            </label>
-            <button type="submit" value="Submit" className='btn btn-outline-secondary'/>
-         </form>
-        </div>
-        */
-    );
+    handleSubmit(event) { 
+        event.preventDefault();
+        if (this.state.text === '') {
+            return;
+        }
+        let msg = {
+            'id': Date.now(),
+            'name': 'Natasha Safonova',
+            'text': this.state.text, 
+            'isOutgoing': true
+        }
+        this.props.onSend(msg);
+        this.setState({ text: '' });
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <div className="input-group ml-4">
+                    <textarea   type="text" 
+                                value={this.state.text} 
+                                onChange={this.updateMessage.bind(this)} 
+                                className="form-control mb-3 col-lg-10" 
+                                placeholder="Введите сообщение"/>
+                    <span className="input-group-btn">
+                        <input type='submit' value='Send' className='btn btn-dark ml-3'/>
+                    </span>
+                </div>
+            </form>
+        );
+    }
 }
 
 export default InputMessage;
