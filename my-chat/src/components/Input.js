@@ -15,11 +15,10 @@ class InputMessage extends Component {
         if (this.state.text === '') {
             return;
         }
-        let msg = {
+        const msg = {
             'id': Date.now(),
             'name': 'Natasha Safonova',
-            'text': this.state.text, 
-            'isOutgoing': true
+            'text': this.state.text
         }
         this.props.onSend(msg);
         this.setState({ text: '' });

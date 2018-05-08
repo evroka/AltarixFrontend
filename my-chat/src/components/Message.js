@@ -27,33 +27,19 @@ class Message extends Component {
 
     render() {
         const {messages} = this.props;
-        if (this.props.messages.isOutgoing) {
-            return (
-                <div className='my-message media mt-3' >
-                    <div className='card card-right mr-2'>
-                        <p>{messages.text}</p>
-                        <p className="date-posted">Отправлено: {(new Date(messages.id)).toDateString()} </p>
-                    </div>  
-                    <div className='user-info pr-2'>
-                        <img src={this.getLogoPath()} alt="ava" className='avatar rounded-circle'/>
-                        <p className='user-name p-1' >{messages.name}</p>
-                    </div>          
-                </div>
-            );
-        } else {
-            return (
-                <div className='media mt-3' >
-                    <div className='user-info pr-2'>
-                            <img src={this.getLogoPath()} alt="ava" className='avatar rounded-circle'/>
-                            <p className='user-name p-1' >{messages.name}</p>
-                    </div>   
-                    <div className='card card-left rounded'>
-                        <p>{messages.text}</p>
-                        <p className="date-posted">Отправлено: {(new Date(messages.id)).toDateString()} </p>
-                    </div>  
-                </div>
-            );
-        }
+        const isOutgoing = this.props.messages.name === 'Natasha Safonova';
+        return (
+            <div className={`media mt-3${isOutgoing ? ' my-message' : ''}`}>
+                <div className={`card card-${isOutgoing ? 'right' : 'left'}`}>
+                    <p>{messages.text}</p>
+                    <p className="date-posted">Отправлено: {(new Date(messages.id)).toDateString()} </p>
+                </div>  
+                <div className='user-info '>
+                    <img src={this.getLogoPath()} alt="ava" className='avatar rounded-circle'/>
+                    <p className='user-name' >{messages.name}</p>
+                </div>          
+            </div>
+        );
     }
 }
 

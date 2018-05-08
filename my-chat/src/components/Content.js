@@ -1,24 +1,32 @@
 import React, {Component} from 'react';
 import MessageList from './MessageList';
-import messages from '../messages';
 import InputMessage from './Input.js';
+import { db } from './firebase'
 
 class Content extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            msgs: messages
+            msgs: []
         }
     };
 
+    componentDidMount() {
+        const messagesRef = db.ref('messages');
+
+        messagesRef.on('value', (snapshot) => {
+            const messages = snapshot.val();
+            const arr = Object.values(messages);
+
+            this.setState(() => {
+                return {msgs: arr};
+              });
+        });
+    }
+
     sendHandler(message) {
-        
-        const arr = this.state.msgs;
-        arr.push(message);
-        this.setState(() => {
-            return {msgs: arr};
-          });
+        db.ref(`/messages/${message.id}`).set(message);
     }
 
     render() {

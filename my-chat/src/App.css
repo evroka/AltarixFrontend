@@ -87,12 +87,21 @@
   border-width: 8px;
 }
 
+.user-info {
+  width: 70px;
+  order: -1;
+  margin: 0 10px;
+}
+
 .my-message {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: flex-end;
 }
 
-.user-info {
-  width: 70px;
+.my-message .user-info {
+  order: 1;
 }
 
 .user-name {
