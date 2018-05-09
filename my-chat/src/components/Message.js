@@ -9,6 +9,9 @@ class Message extends Component {
         const pathStart = 'https://filin.mail.ru/letters/default/45x45/';
         const pathEnd = '/1.png';
         let elem = this.props.messages.name;
+        if(elem === undefined) {
+            return 'http://www.seamedu.com/wp-content/uploads/2018/01/dummy-profile-pic.png';
+        }
         let str = elem.toUpperCase()[0];
         let n = str.charCodeAt(0);
         //russian alphabet

@@ -20,6 +20,8 @@
 .avatar {
   margin: 0 auto; 
   display: block;
+  width: 45px;
+  height: 45px;
 }
 
 .card {
