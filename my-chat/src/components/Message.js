@@ -16,11 +16,11 @@ class Message extends Component {
         let n = str.charCodeAt(0);
         //russian alphabet
         if (n >= 1040) {
-        n -= 1040;
+            n -= 1040;
         }
         //latin alphabet
         else {
-        n -= 65;
+         n -= 65;
         }
         n = n % 16;
         let addr = n.toString().padStart(2, "0");
@@ -35,7 +35,7 @@ class Message extends Component {
             <div className={`media mt-3${isOutgoing ? ' my-message' : ''}`}>
                 <div className={`card card-${isOutgoing ? 'right' : 'left'}`}>
                     <p>{messages.text}</p>
-                    <p className="date-posted">Отправлено: {(new Date(messages.id)).toDateString()} </p>
+                    <p className="date-posted">Отправлено: {(new Date(messages.id)).toLocaleString("ru")} </p>
                 </div>  
                 <div className='user-info '>
                     <img src={this.getLogoPath()} alt="ava" className='avatar rounded-circle'/>
