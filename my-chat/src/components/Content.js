@@ -33,7 +33,11 @@ class Content extends Component {
         return (
             <div>
                 <div className="content">
+                    <a href="#top" className="navTop"><span>&uarr;</span></a>
+                    <div id="top"></div>
                     <MessageList messages={this.state.msgs}/>
+                    <a href="#down" className="navDown"><span>&darr;</span></a>
+                    <div id="down"></div>
                 </div>
                 <div className="input">
                     <InputMessage onSend={this.sendHandler.bind(this)}/>

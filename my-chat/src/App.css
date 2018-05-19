@@ -11,6 +11,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   margin-right: -20px;
+  position: relative;
 }
 
 .content::-webkit-scrollbar {
@@ -92,7 +93,7 @@
 .user-info {
   width: 70px;
   order: -1;
-  margin: 0 10px;
+  margin: 0 25px;
 }
 
 .my-message {
@@ -109,4 +110,57 @@
 .user-name {
   font-size: 12px;
   text-align: center;
+}
+
+.navTop {
+  display: block;
+  background-color: transparent;
+  opacity: 0.5;
+  width: 700px;
+  height: 30px;
+  position: fixed;
+  top: 78px;
+  text-align: right;
+  text-decoration: none;
+  color: gray;
+  z-index: 1;
+  transition: background-color 0.5s ease-out;
+}
+
+.navTop span,
+.navDown span {
+  padding-right: 10px; 
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.navTop:hover {
+  background-color: rgba(23, 162, 184, 0.3);
+  color: black;
+  text-decoration: none;
+}
+
+.navDown {
+  display: block;
+  background-color: transparent;
+  opacity: 0.5;
+  width: 700px;
+  height: 30px;
+  position: fixed;
+  top: 828px;
+  text-align: right;
+  text-decoration: none;
+  color: grey;
+  z-index: 1;
+  transition: background-color 0.5s ease-out;
+}
+
+.navDown span {
+  padding-right: 10px; 
+}
+
+.navDown:hover {
+  background-color: rgba(23, 162, 184, 0.3);
+  color: black;
+  text-decoration: none;
 }

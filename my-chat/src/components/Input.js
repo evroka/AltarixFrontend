@@ -34,7 +34,7 @@ class InputMessage extends Component {
                                 className="form-control mb-3 col-lg-10" 
                                 placeholder="Введите сообщение"/>
                     <span className="input-group-btn">
-                        <input type='submit' value='Send' className='btn btn-dark ml-3'/>
+                        <input type='submit' value='Send' className='btn btn-dark ml-3 mt-3'/>
                     </span>
                 </div>
             </form>
